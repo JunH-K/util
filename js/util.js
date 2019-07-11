@@ -1,42 +1,45 @@
-//객체인가? ,
-function isObject(obj){
-  return obj !== null && typeof obj === "object";
-}
+const util = {
+  //객체인가? ,
+  isObject(obj){
+    return obj !== null && typeof obj === "object";
+  },
 
 //property가 있는 객체인가?
-function isHasOwnProp(obj){
-  if ( isObject( obj ) ){
-    for ( let key in obj ) {
-      if ( obj.hasOwnProperty( key ) ){
-        return true;
+  isHasOwnProp(obj){
+    if ( util.isObject( obj ) ){
+      for ( let key in obj ) {
+        if ( obj.hasOwnProperty( key ) ){
+          return true;
+        }
       }
     }
-  }
-  return false;
-}
+    return false;
+  },
 
 //문자열인가 ?
-function isString(str){
-  if ( typeof str === "string" ){
-    return true;
-  }
-}
+  isString(str){
+    return typeof str === "string";
+  },
+
+  isNotEmptyString(str){
+    return util.isString( str ) && !!str;
+  },
+
+//배열인가?
+  isArray(arr){
+    return Array.isArray( arr );
+  },
 
 //요소가 있는 배열인가?
-function isArray(arr){
-  return Array.isArray( arr ) && !!arr.length;
-}
+  isNotEmptyArray(arr){
+    return Array.isArray( arr ) && !!arr.length;
+  },
 
-
-// module.exports = {
-//   isObject,
-//   isString,
-//   isArray,
-// };
-
-module.exports = {
-  isObject,
-  isHasOwnProp,
+  //null undefined 가 아니면 value 가있음
+  isExist(value){
+    return value !== null && value !== undefined;
+  }
 
 };
 
+module.exports = util;
