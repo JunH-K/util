@@ -7,7 +7,10 @@ const {
   isNotEmptyString,
   isExist,
   isFunction,
-  isNumber
+  isNumber,
+  isBoolean,
+  isNull,
+  isUndefined,
 } = require( '../js/util' );
 
 test( '객체인가?', () => {
@@ -125,5 +128,61 @@ test( '숫자인가?', () => {
   expect( isNumber( [] ) ).toBe( false );
   expect( isNumber( undefined ) ).toBe( false );
   expect( isNumber( null ) ).toBe( false );
+} );
+
+test( 'Boolean 인가?', () => {
+  expect( isBoolean( false ) ).toBe( true );
+  expect( isBoolean( true ) ).toBe( true );
+  expect( isBoolean( new Boolean() ) ).toBe( false );
+  expect( isBoolean( 0 ) ).toBe( false );
+  expect( isBoolean( 1 ) ).toBe( false );
+  expect( isBoolean( 0.1 ) ).toBe( false );
+  expect( isBoolean( NaN ) ).toBe( false );
+  expect( isBoolean( function(){} ) ).toBe( false );
+  expect( isBoolean( ()=>{} ) ).toBe( false );
+  expect( isBoolean( 'a' ) ).toBe( false );
+  expect( isBoolean( '' ) ).toBe( false );
+  expect( isBoolean( [ 1 ] ) ).toBe( false );
+  expect( isBoolean( { a: 1 } ) ).toBe( false );
+  expect( isBoolean( {} ) ).toBe( false );
+  expect( isBoolean( [] ) ).toBe( false );
+  expect( isBoolean( undefined ) ).toBe( false );
+  expect( isBoolean( null ) ).toBe( false );
+} );
+
+test( 'null 인가?', () => {
+  expect( isNull( null ) ).toBe( true );
+  expect( isNull( 0 ) ).toBe( false );
+  expect( isNull( 1 ) ).toBe( false );
+  expect( isNull( 0.1 ) ).toBe( false );
+  expect( isNull( NaN ) ).toBe( false )
+  expect(isNull( function(){} ) ).toBe( false );
+  expect(isNull( ()=>{} ) ).toBe( false );
+  expect( isNull( 'a' ) ).toBe( false );
+  expect( isNull( '' ) ).toBe( false );
+  expect( isNull( [ 1 ] ) ).toBe( false );
+  expect( isNull( { a: 1 } ) ).toBe( false );
+  expect( isNull( {} ) ).toBe( false );
+  expect( isNull( [] ) ).toBe( false );
+  expect( isNull( undefined ) ).toBe( false );
+} );
+
+test( 'undefined 인가?', () => {
+  var value;
+  expect( isUndefined( value ) ).toBe( true );
+  expect( isUndefined( undefined ) ).toBe( true );
+  expect( isUndefined( 0 ) ).toBe( false );
+  expect( isUndefined( 1 ) ).toBe( false );
+  expect( isUndefined( 0.1 ) ).toBe( false );
+  expect( isUndefined( NaN ) ).toBe( false );
+  expect( isUndefined( function(){} ) ).toBe( false );
+  expect( isUndefined( ()=>{} ) ).toBe( false );
+  expect( isUndefined( 'a' ) ).toBe( false );
+  expect( isUndefined( '' ) ).toBe( false );
+  expect( isUndefined( [ 1 ] ) ).toBe( false );
+  expect( isUndefined( { a: 1 } ) ).toBe( false );
+  expect( isUndefined( {} ) ).toBe( false );
+  expect( isUndefined( [] ) ).toBe( false );
+  expect( isUndefined( null ) ).toBe( false );
 } );
 
