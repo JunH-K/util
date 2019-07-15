@@ -31,7 +31,7 @@ const util = {
     return typeof str === "string";
   },
   isBoolean(value){
-    return typeof  value === "boolean";
+    return typeof value === "boolean";
   },
   isNull(value){
     return value === null;

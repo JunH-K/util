@@ -23,12 +23,12 @@ test( '객체인가?', () => {
   expect( isObject( 1 ) ).toBe( false );
   expect( isObject( function(){} ) ).toBe( false );
   expect( isObject( ()=>{} ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
+  expect( isObject( 0 ) ).toBe( false );
+  expect( isObject( 1 ) ).toBe( false );
+  expect( isObject( 0.1 ) ).toBe( false );
+  expect( isObject( NaN ) ).toBe( false );
+  expect( isObject( 'a' ) ).toBe( false );
+  expect( isObject( '' ) ).toBe( false );
 } );
 
 test( '속성이 있는 객체인지 확인', () => {
@@ -43,12 +43,12 @@ test( '속성이 있는 객체인지 확인', () => {
   expect( isHasOwnProp( function(){} ) ).toBe( false );
   expect( isHasOwnProp( function (a){} ) ).toBe( false );
   expect( isHasOwnProp( ()=>{} ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
+  expect( isHasOwnProp( 0 ) ).toBe( false );
+  expect( isHasOwnProp( 1 ) ).toBe( false );
+  expect( isHasOwnProp( 0.1 ) ).toBe( false );
+  expect( isHasOwnProp( NaN ) ).toBe( false );
+  expect( isHasOwnProp( 'a' ) ).toBe( false );
+  expect( isHasOwnProp( '' ) ).toBe( false );
 } );
 
 test( '배열인지 확인', () => {
@@ -61,12 +61,12 @@ test( '배열인지 확인', () => {
   expect( isArray( null ) ).toBe( false );
   expect( isArray( 1 ) ).toBe( false );
   expect( isArray( 'a' ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
+  expect( isArray( 0 ) ).toBe( false );
+  expect( isArray( 1 ) ).toBe( false );
+  expect( isArray( 0.1 ) ).toBe( false );
+  expect( isArray( NaN ) ).toBe( false );
+  expect( isArray( 'a' ) ).toBe( false );
+  expect( isArray( '' ) ).toBe( false );
 } );
 
 test( '빈 배열인지 확인', () => {
@@ -79,12 +79,12 @@ test( '빈 배열인지 확인', () => {
   expect( isNotEmptyArray( null ) ).toBe( false );
   expect( isNotEmptyArray( 1 ) ).toBe( false );
   expect( isNotEmptyArray( 'a' ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
+  expect( isNotEmptyArray( 0 ) ).toBe( false );
+  expect( isNotEmptyArray( 1 ) ).toBe( false );
+  expect( isNotEmptyArray( 0.1 ) ).toBe( false );
+  expect( isNotEmptyArray( NaN ) ).toBe( false );
+  expect( isNotEmptyArray( 'a' ) ).toBe( false );
+  expect( isNotEmptyArray( '' ) ).toBe( false );
 } );
 
 test( '문자열인지 확인', () => {
@@ -97,10 +97,10 @@ test( '문자열인지 확인', () => {
   expect( isString( undefined ) ).toBe( false );
   expect( isString( null ) ).toBe( false );
   expect( isString( 1 ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
+  expect( isString( 0 ) ).toBe( false );
+  expect( isString( 1 ) ).toBe( false );
+  expect( isString( 0.1 ) ).toBe( false );
+  expect( isString( NaN ) ).toBe( false );
 } );
 
 test( '빈 문자열인지 확인', () => {
@@ -113,10 +113,10 @@ test( '빈 문자열인지 확인', () => {
   expect( isNotEmptyString( undefined ) ).toBe( false );
   expect( isNotEmptyString( null ) ).toBe( false );
   expect( isNotEmptyString( 1 ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
+  expect( isNotEmptyString( 0 ) ).toBe( false );
+  expect( isNotEmptyString( 1 ) ).toBe( false );
+  expect( isNotEmptyString( 0.1 ) ).toBe( false );
+  expect( isNotEmptyString( NaN ) ).toBe( false );
 } );
 
 test( 'value 가 null, undefined가 아닌값인지 확인', () => {
@@ -127,14 +127,13 @@ test( 'value 가 null, undefined가 아닌값인지 확인', () => {
   expect( isExist( {} ) ).toBe( true );
   expect( isExist( [] ) ).toBe( true );
   expect( isExist( 1 ) ).toBe( true );
+  expect( isExist( 0 ) ).toBe( true );
+  expect( isExist( 0.1 ) ).toBe( true );
+  expect( isExist( 'a' ) ).toBe( true );
+  expect( isExist( '' ) ).toBe( true );
+  expect( isExist( NaN ) ).toBe( true );
   expect( isExist( undefined ) ).toBe( false );
   expect( isExist( null ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
 } );
 
 test( '함수인가?', () => {
@@ -149,12 +148,12 @@ test( '함수인가?', () => {
   expect( isFunction( 1 ) ).toBe( false );
   expect( isFunction( undefined ) ).toBe( false );
   expect( isFunction( null ) ).toBe( false );
-  expect( isUndefined( 0 ) ).toBe( false );
-  expect( isUndefined( 1 ) ).toBe( false );
-  expect( isUndefined( 0.1 ) ).toBe( false );
-  expect( isUndefined( NaN ) ).toBe( false );
-  expect( isUndefined( 'a' ) ).toBe( false );
-  expect( isUndefined( '' ) ).toBe( false );
+  expect( isFunction( 0 ) ).toBe( false );
+  expect( isFunction( 1 ) ).toBe( false );
+  expect( isFunction( 0.1 ) ).toBe( false );
+  expect( isFunction( NaN ) ).toBe( false );
+  expect( isFunction( 'a' ) ).toBe( false );
+  expect( isFunction( '' ) ).toBe( false );
 } );
 
 test( '숫자인가?', () => {
