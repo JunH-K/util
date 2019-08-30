@@ -7,12 +7,16 @@
     "test11": "echo \"Error: no test specified\" && exit 1",
     "test": "jest --watchAll --verbose"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "check javascript value",
+    "js type check",
+    "javascript value check"
+  ],
   "author": "Jun K",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/kdeveloper87/util.git"
-  },
-  "keywords": ["javascript","check javascript value","js type check","javascript value check"]
+  }
 }
