@@ -1,16 +1,18 @@
 {
-  "name": "util",
+  "name": "js-util-junk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "javascript type check and value check",
+  "main": "js/util.js",
   "scripts": {
     "test11": "echo \"Error: no test specified\" && exit 1",
     "test": "jest --watchAll --verbose"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "jest": "^24.8.0"
-  }
+  "author": "Jun K",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kdeveloper87/util.git"
+  },
+  "keywords": ["javascript","check javascript value","js type check","javascript value check"]
 }

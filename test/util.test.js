@@ -16,7 +16,7 @@ const {
 test( '객체인가?', () => {
   expect( isObject( {} ) ).toBe( true );
   expect( isObject( { a: 1 } ) ).toBe( true );
-  expect( isObject( [] ) ).toBe( true );
+  expect( isObject( [] ) ).toBe( false );
   expect( isObject( "" ) ).toBe( false );
   expect( isObject( undefined ) ).toBe( false );
   expect( isObject( null ) ).toBe( false );
@@ -33,7 +33,7 @@ test( '객체인가?', () => {
 
 test( '속성이 있는 객체인지 확인', () => {
   expect( isHasOwnProp( { a: 1 } ) ).toBe( true );
-  expect( isHasOwnProp( [ 1 ] ) ).toBe( true );
+  expect( isHasOwnProp( [ 1 ] ) ).toBe( false );
   expect( isHasOwnProp( {} ) ).toBe( false );
   expect( isHasOwnProp( [] ) ).toBe( false );
   expect( isHasOwnProp( "" ) ).toBe( false );
